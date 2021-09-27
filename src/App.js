@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import axios from "axios";
+import { useEffect, useState } from "react";
+import "./App.css";
+import { Card } from "./card/Card";
+import { Navigation } from "./navigation/Navigation";
 
 function App() {
+  const [input, setInput] = useState("");
+
+  const fetchData = async () => {
+    const { data } = await axios.get(
+      ` http://www.omdbapi.com/?t=${input}&apikey=${process.env.REACT_APP_API_KEY}`
+    );
+    console.log(data);
+    setMovie([data]);
+  };
+  const [movie, setMovie] = useState([]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navigation fetchData={fetchData} input={input} setInput={setInput} />
+      {movie &&
+        movie.map((mov) => (
+          <Card
+            img_src={mov.Poster}
+            title={mov.Title}
+            imdbrating={mov.imdbRating}
+            type={mov.Type}
+            genre={mov.Genre}
+            plot={mov.Plot}
+            year = {mov.Year}
+          />
+        ))}
     </div>
   );
 }

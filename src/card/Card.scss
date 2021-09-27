@@ -1,0 +1,24 @@
+
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .card{
+        margin: 2rem 0 ;
+        width: 20rem;
+        border-radius: 1rem;
+        overflow: hidden;
+        img{
+            width: 100%;
+        }
+        .content{
+            color: #fff;
+            h1{
+                text-align: center;
+            }
+        }
+    }
+
+}
