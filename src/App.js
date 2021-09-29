@@ -14,6 +14,7 @@ import { Navigation } from "./navigation/Navigation";
 
 function App() {
   const [input, setInput] = useState('');
+  const [finput, setFinput] = useState('')
 
   const fetchData = async () => {
     const { data } = await axios.get(
@@ -25,14 +26,14 @@ function App() {
   return (
     // <Router> 
     <div>
-      <Navigation fetchData={fetchData} input={input} setInput={setInput} />
+      <Navigation setFinput = {setFinput} fetchData={fetchData} input={input} setInput={setInput} />
       {/* <Switch> */}
           {/* <Route path="/" exact>
             <App />
           </Route> */}
           {/* <Route path="/favourite" component ={Favourite}/> */}
       
-        <h1 className = "search-head">Movies with keyword "{input}"</h1>
+        <h1 className = "search-head">Movies with keyword "{finput}"</h1>
       <div className="movies-list">
 
       {movie &&

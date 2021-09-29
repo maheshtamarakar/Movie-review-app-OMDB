@@ -10,12 +10,14 @@ import { Favourite } from "../Favourite/Favourite";
 import App from "../App";
 export const Navigation = (props) => {
   const searchInput =(e)=>{
-      props.setInput(e.target.value)
+      props.setInput(e.target.value);
+      props.setFinput(e.target.value);
 
   }
   const submit = (e)=>{
     e.preventDefault();
     props.fetchData();
+    props.setInput('')
   }
 
 
