@@ -52,18 +52,27 @@ a {
 }
 
 .form .search {
-  width: 55vw;
-  height: 2rem;
+  width: 35vw;
+  height: 2.5rem;
   border-radius: 4rem;
   border: none;
   margin-top: 1.5rem;
   padding: 0 0.8rem;
+  font-size: 1.3rem;
+  -webkit-box-shadow: -4px -4px 10px rgba(255, 255, 255, 0.158), 4px 4px 10px rgba(0, 0, 0, 0.685);
+          box-shadow: -4px -4px 10px rgba(255, 255, 255, 0.158), 4px 4px 10px rgba(0, 0, 0, 0.685);
 }
 
 .form .search:focus {
-  -webkit-box-shadow: -5px 1px 45px -3px #fff;
-          box-shadow: -5px 1px 45px -3px #fff;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   border-color: black;
-  outline: #fff;
+  outline: none;
+}
+
+@media (max-width: 500px) {
+  .form .search {
+    width: 70vw;
+  }
 }
 /*# sourceMappingURL=Navigation.css.map */

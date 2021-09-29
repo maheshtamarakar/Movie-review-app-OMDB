@@ -9,7 +9,8 @@ body {
   margin: 0;
   box-sizing: border-box;
   transition: all .3s ease;
-  background-color: black;
+  background: #330881;
+  background: linear-gradient(112deg, #330881 0%, #060122 100%);
 }
 
 
