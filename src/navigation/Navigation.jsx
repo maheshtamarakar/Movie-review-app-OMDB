@@ -1,13 +1,7 @@
-import React, { useEffect } from "react";
 import "./Navigation.css";
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
   Link
 } from "react-router-dom";
-import { Favourite } from "../Favourite/Favourite";
-import App from "../App";
 export const Navigation = (props) => {
   const searchInput =(e)=>{
       props.setInput(e.target.value);
@@ -17,24 +11,24 @@ export const Navigation = (props) => {
   const submit = (e)=>{
     e.preventDefault();
     props.fetchData();
-    props.setInput('')
+    props.setInput('');
+    
   }
 
 
   return (
-    // <Router>
     <div>
       <div className="header">
         <nav>
-          <a to="/" className="logo">
+          <Link to="/" className="logo">
             Movie App
-          </a>
+          </Link>
           <ul>
             <li>
-              <a to="/">Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <a to="/favourite">favourite</a>
+              <Link to="/favourite">favourite</Link>
             </li>
           </ul>
         </nav>
@@ -49,15 +43,6 @@ export const Navigation = (props) => {
           placeholder = "Enter Movie Keyword"
         />
       </form>
-      {/* <Switch>
-          <Route path="/favorite">
-            <Favourite />
-          </Route>
-          <Route path="/" exact>
-            <App />
-          </Route>
-        </Switch> */}
     </div>
-    // </Router>
   );
 };
